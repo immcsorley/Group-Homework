@@ -1,0 +1,63 @@
+--This is a dice game with the following question to be answered: 
+-Roll a six sided die.
+-If you roll a 1, 2 or a 3, the game is over.
+-If you roll a 4, 5, or 6, you win that many dollars ($4, $5, or $6), and then roll again.
+- With each additional roll, you have the chance to win more money, or you might roll a game-ending 1, 2, 
+or 3, at which time the game is over and you keep whatever winnings you have accumulated.
+
+Would you pay $3 for a chance to play this game? Why or why not?
+---
+
+import random
+
+
+def diceGame(numGames):
+    winningList = []
+    i = 0
+    while i < numGames :
+        currentGame = True
+        winnings = 0
+        while currentGame:
+            diceRoll = random.randint(1,6)
+            if diceRoll == 1 or diceRoll == 2 or diceRoll == 3:
+                currentGame = False
+                # print(diceRoll) #used this to check
+                winningList.append(winnings)
+            elif diceRoll == 4:
+                # print(diceRoll) # used this to check
+                winnings = winnings + 4
+            elif diceRoll == 5: 
+                # print(diceRoll) # used this to check
+                winnings = winnings + 5
+            elif diceRoll == 6:
+                # print(diceRoll) # used this to check
+                winnings = winnings + 6
+        i = i + 1
+    total = 0          
+    for totals in winningList:
+        total = total + totals
+    average = total / numGames
+    print('max: $ ' + str(max(winningList)))
+    print('average: $ ' + str(average))
+
+diceGame(10000)
+'''
+•	We would pay $3 to play this game, because the average outcomes of the game are more than $3, so you are more than likely going to make your money back.
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
