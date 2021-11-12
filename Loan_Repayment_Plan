@@ -1,0 +1,32 @@
+####Q1
+#Setting variables so we can input amount of loans, inerest, and how many years
+loan_per_year=float(input('What is the loan per year? ')) interest_rate=float(input('What is the interest rate? '))
+years =int(input('How many years? '))
+## do not owe anything in beginning, counter keeps track of loop
+total_owed=0
+counter=0
+#loop will stop when it is = years
+while counter != years:
+    counter+=1
+total_owed=(total_owed +loan_per_year)*(1+interest_rate)
+print('The total amount owed is: $',round(total_owed,2)) # rounding the decimal to 2 places
+#Q2
+monthly_interest_rate = interest_rate/12 # defining monthly interest rate variable
+minAmountDue = float(monthly_interest_rate*total_owed) # same as what's gained in interest every month monthly_payment=float(input('What is the monthly payment? ')) #input our monthly payment we can make
+if monthly_payment >= minAmountDue:
+print('A monthly payment of $'+ str(monthly_payment)+ ' will
+work!')
+else:
+print("A monthly payment of $" +str(monthly_payment)+ " won't work! You'll be playing off your loans forever.")
+print('The minimum monthly payment for this loan would be ' +str(minAmountDue)+ ' dollars.' )
+#Q3
+month=0 #this is our counter variable while total_owed > 0:
+    month+=1 # this is month=month+1
+total_owed = total_owed - monthly_payment #this subtracts each month's payemnt from our total owed
+total_owed+=total_owed*monthly_interest_rate #this is adding the monthly interest back on to total owed
+print('It will take ' + str(month) + ' months to pay off your student loans')
+print('It will take '+ str(month/12)+ ' years to pay off your student loans. ')
+'''
+$75 does not work as a payment because the minAmount due is $75.42, just a rounding issue,
+but the code is correct
+'''
